@@ -103,7 +103,6 @@ const Carousel = () => {
     if (activePlane !== null) return
     setIsDown(true)
     if ('touches' in e) {
-      console.log('touches: ',e.touches,'[0]: ',e.touches[0]);
       (e.touches && e.touches[0]!.clientX) || 0
     } else {
       startX.current = e.clientX || 0

@@ -12,7 +12,7 @@ const Plane = ({ texture, width, height, active, ...props }: PlaneType) => {
 
   useEffect(() => {
     if (meshRef.current.material) {
-      const meshMaterial = ((meshRef.current.material) as THREE.ShaderMaterial)
+      const meshMaterial = (meshRef.current.material) as THREE.ShaderMaterial
       //  Setting the 'uZoomScale' uniform in the 'Plane' component to resize the texture proportionally to the dimensions of the viewport.
       meshMaterial.uniforms.uZoomScale!.value.x = viewport.width / width;
       meshMaterial.uniforms.uZoomScale!.value.y = viewport.height / height
