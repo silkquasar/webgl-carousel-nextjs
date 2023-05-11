@@ -1,11 +1,18 @@
-import { useEffect, useRef, useState, useMemo } from 'react'
-import { ThreeEvent, useFrame, useThree } from '@react-three/fiber'
-import { usePrevious } from 'react-use'
-import gsap from 'gsap'
-import PostProcessing from './PostProcessing'
-import CarouselItem from './CarouselItem'
-import { lerp, getPiramidalIndex } from '@/utils/general'
-import images from '@/data/images'
+'use client'
+
+import CarouselItem from './CarouselItem';
+import gsap from 'gsap';
+import images from '@/data/images';
+import PostProcessing from './PostProcessing';
+import { getPiramidalIndex, lerp } from '@/utils/general';
+import { ThreeEvent, useFrame, useThree } from '@react-three/fiber';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
+import { usePrevious } from 'react-use';
 
 /*------------------------------
 Plane Settings
@@ -40,7 +47,7 @@ const Carousel = () => {
   --------------------*/
   const progress = useRef(0)
   const startX = useRef(0)
-  const [isDown, setIsDown] = useState(false)
+  const isDown = useRef(false)
   const speedWheel = 0.02
   const speedDrag = -0.3
   const oldProgress = useRef(0)
@@ -101,7 +108,7 @@ const Carousel = () => {
   const handleDown = (e: ThreeEvent<MouseEvent> | ThreeEvent<TouchEvent>) => {
     e.stopPropagation()
     if (activePlane !== null) return
-    setIsDown(true)
+    isDown.current = true
     if ('touches' in e) {
       (e.touches && e.touches[0]!.clientX) || 0
     } else {
@@ -114,7 +121,7 @@ const Carousel = () => {
   Handle Up
   --------------------*/
   const handleUp = () => {
-    setIsDown(false)
+    isDown.current = false
   }
 
   /*--------------------
@@ -122,7 +129,7 @@ const Carousel = () => {
   --------------------*/
   const handleMove = (e: ThreeEvent<MouseEvent> | ThreeEvent<TouchEvent>) => {
     e.stopPropagation()
-    if (activePlane !== null || !isDown) return
+    if (activePlane !== null || !isDown.current) return
     const x = ('touches' in e) ? (e.touches && e.touches[0]!.clientX) : e.clientX || 0
     const mouseProgress = (x - startX.current) * speedDrag
     progress.current = progress.current + mouseProgress
