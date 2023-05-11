@@ -5,6 +5,7 @@ import { Color } from 'three'
 import { useControls } from 'leva'
 
 const PostProcessing = forwardRef((_, ref) => {
+  PostProcessing.displayName = 'PostProcessing'
   const { viewport } = useThree()
 
   const { active, ior } = useControls({
@@ -30,6 +31,9 @@ const PostProcessing = forwardRef((_, ref) => {
         chromaticAberration={0.06}
         anisotropy={0}
         ior={ior}
+        //added to make typescript happy
+        distortionScale={0}
+        temporalDistortion={0}
       />
     </mesh>
   ) : null
