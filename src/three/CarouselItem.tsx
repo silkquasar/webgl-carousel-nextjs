@@ -1,9 +1,8 @@
 'use client'
-
-import { useEffect, useRef, useState } from 'react'
-import { ThreeEvent, useThree } from '@react-three/fiber'
-import gsap from 'gsap'
-import Plane from './Plane'
+import gsap from 'gsap';
+import Plane from './Plane';
+import { ThreeEvent, useThree } from '@react-three/fiber';
+import { useEffect, useRef, useState } from 'react';
 
 const CarouselItem = ({
   index,

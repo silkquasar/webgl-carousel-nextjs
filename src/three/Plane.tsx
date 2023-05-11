@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useRef } from 'react'
-import { useThree } from '@react-three/fiber'
-import { useTexture } from '@react-three/drei'
-import gsap from 'gsap'
-import vertex from '@/three/shaders/vertex.glsl'
-import fragment from '@/three/shaders/fragment.glsl'
+import fragment from '@/three/shaders/fragment.glsl';
+import gsap from 'gsap';
+import vertex from '@/three/shaders/vertex.glsl';
+import { useEffect, useMemo, useRef } from 'react';
+import { useTexture } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
 
 const Plane = ({ texture, width, height, active, ...props }: PlaneType) => {
   const meshRef = useRef<THREE.Mesh>(null!)

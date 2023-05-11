@@ -1,8 +1,8 @@
-import { forwardRef } from 'react'
-import { useThree } from '@react-three/fiber'
-import { MeshTransmissionMaterial } from '@react-three/drei'
-import { Color } from 'three'
-import { useControls } from 'leva'
+import { Color } from 'three';
+import { forwardRef } from 'react';
+import { MeshTransmissionMaterial } from '@react-three/drei';
+import { useControls } from 'leva';
+import { useThree } from '@react-three/fiber';
 
 const PostProcessing = forwardRef((_, ref) => {
   PostProcessing.displayName = 'PostProcessing'
