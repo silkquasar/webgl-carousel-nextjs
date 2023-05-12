@@ -1,3 +1,4 @@
+"use client"
 import { Color } from 'three';
 import { forwardRef } from 'react';
 import { MeshTransmissionMaterial } from '@react-three/drei';

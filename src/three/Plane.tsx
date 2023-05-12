@@ -1,3 +1,4 @@
+"use client"
 import fragment from '@/three/shaders/fragment.glsl';
 import gsap from 'gsap';
 import vertex from '@/three/shaders/vertex.glsl';
